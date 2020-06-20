@@ -15,8 +15,7 @@ export class MessagesDao {
           KeyConditionExpression: 'channelId = :channelId',
           ExpressionAttributeValues: {
               ':channelId': channelId
-          },
-          ScanIndexForward: false
+          }
         }).promise()
     
         return result.Items as Message[]
