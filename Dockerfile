@@ -1,5 +1,5 @@
 # Set the base image
-FROM node:13.11.0
+FROM node:12.16.3
 # Create app directory
 WORKDIR /usr/src/app
 # Copy package.json AND package-lock.json

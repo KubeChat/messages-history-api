@@ -1,8 +1,8 @@
 import { Router, Request, Response } from 'express';
 import { Message } from '../models/Message';
-import { getGetSignedUrl, getPutSignedUrl } from '../data/attachmentsBucket';
+import { getGetSignedUrl, getPutSignedUrl } from '../data/AttachmentsBucket';
 import { verifyToken } from '../../../../middlewares/jwt';
-import { MessagesDao } from '../data/messagesDao';
+import { MessagesDao } from '../data/MessagesDao';
 
 const router: Router = Router();
 const messagesDao = new MessagesDao();
@@ -11,7 +11,7 @@ router.get('/:id', verifyToken, async (req: any, res: Response) => {
     const email = req.user.email;
     const otherEmail = req.params.id;
     const channelId = [email, otherEmail].sort().join();
-    const messages = await messagesDao.getMessagesOfChannel(channelId);
+    const messages: Message[] = await messagesDao.getMessagesOfChannel(channelId);
     res.status(200).send(messages.map(message => {
         return {
             text: message.text,
