@@ -9,6 +9,9 @@ export const s3 = new AWS.S3({
 
 
 export function getGetSignedUrl( key: string ): string{
+  if (!key) {
+    return null;
+  }
 
   const signedUrlExpireSeconds = 60 * 5
 
