@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
 import { Message } from '../models/Message';
-import { getGetSignedUrl, getPutSignedUrl } from '../data/AttachmentsBucket';
+import { getGetSignedUrl, getPutSignedUrl } from '../data/attachmentsBucket';
 import { verifyToken } from '../../../../middlewares/jwt';
 import { MessagesDao } from '../data/MessagesDao';
 
