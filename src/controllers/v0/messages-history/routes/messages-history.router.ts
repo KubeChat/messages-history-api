@@ -51,4 +51,13 @@ router.post('/', verifyToken, async (req: any, res: Response) => {
     res.status(201).send(message);
 });
 
+router.get('/attachments/:fileName', verifyToken, async (req: any, res: Response) => {
+    const email = req.user.email;
+    const fileName: string = req.params.fileName;
+    if (!fileName.startsWith(email)) {
+        return res.status(401).send({message: 'image is not owned by the requester'});
+    }
+    res.status(200).send({ attachmentUrl: getGetSignedUrl(fileName) });
+});
+
 export const MessagesRouter: Router = router;
