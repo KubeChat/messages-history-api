@@ -19,7 +19,7 @@
     "@types/jsonwebtoken": "^8.3.2",
     "aws-sdk": "^2.429.0",
     "body-parser": "^1.18.3",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "jsonwebtoken": "^8.5.1",
     "jwks-rsa": "^1.8.0",
     "pg": "^7.9.0",
